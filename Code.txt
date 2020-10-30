@@ -1,0 +1,98 @@
+import random
+from array import *
+import time
+
+N=int(input("Enter the size of the matrix- chess board\n"))
+
+#board = [[0]*N for _ in range(N)]
+
+def forbidden(i,j):
+    for k in range(0,N):
+        board[i][k]=1
+        board[k][j]=1
+        
+    for m in range(0,N):   
+        for l in range(0,N):
+#             print("check")
+            if (m+l==i+j) or (m-l==i-j):
+                board[m][l]=1
+
+    return board
+
+
+
+def randomf():
+    x=random.randint(0,N-1)
+    y=random.randint(0,N-1)
+    return(x,y)
+
+def printboard():
+    for i in board:
+        for c in i:
+            print(c,end=" ")
+        print()
+
+
+# main
+# list of the allowed positions
+
+
+
+def Nrandom_gen():
+    list1=[]
+    # generating the first random value
+    a=random.randint(0,N-1)
+    b=random.randint(0,N-1)
+    list1.append((a,b))
+    # board[a][b]='Q'
+
+    # specifying the forbidden values
+    forbidden(a,b)
+
+    board[a][b]='Q'
+
+    for i in range(0,10000):
+
+        (c,d)=randomf()
+        #     print((c,d))
+        if(board[c][d]==0):
+        #         board[c][d]=2
+            list1.append((c,d))
+            forbidden(c,d)
+            board[c][d]='Q'
+
+
+    ll=len(list1)
+    print(list1)
+    print("no of queens=",ll)
+    printboard()
+    return ll
+    
+
+#main
+start=time.time()
+cor=0
+inc=0
+for ij in range(0,10):
+    board = [[0]*N for _ in range(N)]
+    abc=Nrandom_gen()   
+    if(abc==N):
+        cor=cor+1
+        
+        print("correct")
+        
+    else:
+        inc=inc+1
+        print("incorrect")
+
+
+        
+print("The number of successful", N, "queen solutions are:",cor)
+print("The number of unsuccessful",N ,"queen solutions are:",inc)
+
+
+end=time.time()
+
+print(f"Time required is {end-start}")
+       
+
