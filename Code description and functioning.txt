@@ -1,6 +1,15 @@
-Randomized n queen problem:
-A random no generator-program will create n-n blank matrix.
-Then, it will generate 1 cell in the matrix—say matrix[i,j],and analyse the set of forbidden values- how many cells will not be thereby used by n queen condition. After that, it will keep on generating random values, until we get a set of valid points that satisfy the n queen condition. Continue the process, and for the generated matrix with the queens placed, check whether the solution is a valid n queen solution or not. Check the condition for 10 random matrices of size n(user defined) and calculate the time required.
+Randomized N-Queens Solver
+This approach solves the N-Queens problem using a randomized strategy. It generates multiple N × N matrices, attempts to place queens randomly while maintaining validity, and evaluates success rates and execution time.
 
-Functioning:
-A matrix of size(n*n) will be created and all the cells will be assigned 0. A function will generate a set of random values in the user-defined range(n); accordingly, a function will check for all the forbidden values in the matrix for the randomly generated number and change its value to 1. Accordingly, it will place the queen, if it satisfies the n queen condition (no two queens in the same wow, same column or same diagonal). The process will be continued until the queens are placed in the board and all the optimal cells are filled. For all the positions of the queens, the matrix value will be appended to a list and displayed. Thereby, if the solution is correct (all n-queens placed correctly), it will count it to be a successful solution, else an unsuccessful solution. The program finally will return the time required and calculate the number of successful and unsuccessful solutions generated. It will display the board, the list with coordinates of the cell where queen is placed, the number of queens and whether the result is a success or failure. The program will also calculate the time required for execution and the number of successful and unsuccessful solutions.
+Methodology:
+Matrix Initialization – Create an N × N matrix initialized with zeros.
+Randomized Placement – Generate random positions for queens, ensuring no conflicts (row, column, diagonal).
+Conflict Analysis – Identify and mark forbidden cells before placing each queen.
+Validation & Iteration – Verify if the generated board is a valid solution and repeat for 10 random matrices.
+Performance Metrics – Measure execution time, count successful vs. unsuccessful solutions.
+
+Output:
+Board visualization with placed queens.
+Coordinates of placed queens.
+Success or failure of each attempt.
+Execution time and success rate.
